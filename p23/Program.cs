@@ -14,10 +14,9 @@ class Program
         cache.RegisterEntityType("Животное");
         cache.AddEntity("Человек", new Human("Человек",25));
         cache.AddEntity("Животное", new Animal{ Name = "Барашек", Age = 2, Color = "белый" });
-        cache.AddEntity("Животное", new Animal { Name = "Козёл", Age = 2, Color = "белый" });
+        cache.AddEntity("Животное", new Animal("Козёл", 29, "зелёный"));
 
         bool exists = cache.CheckEntityExistence("Человек", new Human { Name = "Человек", Age = 25 });
-        exists = cache.CheckEntityExistence("Животное", new Animal{ Name = "Барашек", Age = 2, Color = "белый" });
         Console.WriteLine($"Объект существует в кэше: {exists}");
 
         foreach (var type in cache.cache)
