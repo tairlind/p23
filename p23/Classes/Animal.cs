@@ -31,6 +31,29 @@ namespace p23
 
 
 
+        public override bool Equals(object obj)
+        {
+            Animal other = obj as Animal;
+            if (other is null) return false;
+
+
+            return other.Age == this.Age && other.Name == this.Name;
+        }
+        public static bool operator ==(Animal animal1, Animal animal2)
+        {
+            if (animal1 == null || animal2 == null) return false;
+
+            return animal1.Equals(animal2);
+        }
+        public static bool operator !=(Animal human1, Animal human2)
+        {
+            if (human1 == null || human2 == null) return true;
+
+            return !human1.Equals(human2);
+        }
+
+
+
         public override string ToString()
         {
             return $"Name={Name}\tAge={Age}\tColor={Color}";

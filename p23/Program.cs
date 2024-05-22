@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using SingletonLib;
 
 class Program
 {
@@ -16,7 +17,7 @@ class Program
         cache.AddEntity("Животное", new Animal{ Name = "Барашек", Age = 2, Color = "белый" });
         cache.AddEntity("Животное", new Animal("Козёл", 29, "зелёный"));
 
-        bool exists = cache.CheckEntityExistence("Человек", new Human { Name = "Человек", Age = 25 });
+        bool exists = cache.CheckEntityExistence("Животное", new Animal("Козёл", 29, "зелёный"));
         Console.WriteLine($"Объект существует в кэше: {exists}");
 
         foreach (var type in cache.cache)
