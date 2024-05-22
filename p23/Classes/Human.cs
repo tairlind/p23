@@ -28,6 +28,7 @@ namespace p23
 
 
 
+
         public override bool Equals(object obj)
         {
             Human other = obj as Human;
